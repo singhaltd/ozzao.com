@@ -5,11 +5,7 @@ import { useRive } from '@rive-app/react-canvas';
 import SearchDialog from '../components/search/DialogSearch';
 import OZFooter from '../components/footer/ozfooter';
 
-interface Props {
-    data?: Object
-    // any props that come into the component
-}
-export default function shops({ ...data }) {
+export default function shops({ data }) {
     const { rive, RiveComponent } = useRive({
         src: 'https://cdn.rive.app/animations/vehicles.riv',
         autoplay: false,
