@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from "next/image";
 import HomeCarousel from '../components/carousel/HomeCarousel'
 import PupoverUser from '../components/navbar/pupoverUser'
 import { useRive } from '@rive-app/react-canvas';
@@ -72,7 +73,18 @@ export default function shops({ data }) {
                         {data && data.products.map((t, i) => {
                             return (
                                 <div key={i} className="hover:border border">
-                                    <img src={t.thumbnail} alt={t.title} />
+                                    {/* <img src={t.thumbnail} alt={t.title} /> */}
+                                    <div className="w-full h-[171px] object-center overflow-hidden">
+                                        <Image
+                                            src={t.thumbnail}
+                                            alt={t.title}
+                                            width={171}
+                                            height={171}
+                                            layout="responsive"
+                                            loading="lazy"
+                                        />
+                                    </div>
+
                                     {/* {JSON.stringify(t)} */}
                                     <div><p>{t.title}</p></div>
                                     <div>
