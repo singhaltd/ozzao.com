@@ -69,7 +69,7 @@ export default function shops({ data }) {
             <section>
                 <span className='sr-only'>product</span>
                 <div className='oz-contianer'>
-                    <div className='grid grid-cols-5 gap-2'>
+                    <div className='oz-product-grid'>
                         {data && data.products.map((t, i) => {
                             return (
                                 <div key={i} className="hover:border border">
