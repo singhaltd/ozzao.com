@@ -5,6 +5,7 @@ import PupoverUser from '../components/navbar/pupoverUser'
 import { useRive } from '@rive-app/react-canvas';
 import SearchDialog from '../components/search/DialogSearch';
 import OZFooter from '../components/footer/ozfooter';
+import Link from 'next/link';
 
 export default function shops({ data }) {
     const { rive, RiveComponent } = useRive({
@@ -72,26 +73,28 @@ export default function shops({ data }) {
                     <div className='oz-product-grid'>
                         {data && data.products.map((t, i) => {
                             return (
-                                <div key={i} className="hover:border border">
-                                    {/* <img src={t.thumbnail} alt={t.title} /> */}
-                                    <div className="w-full h-[171px] object-center overflow-hidden">
-                                        <Image
-                                            src={t.thumbnail}
-                                            alt={t.title}
-                                            width={171}
-                                            height={171}
-                                            layout="responsive"
-                                            loading="lazy"
-                                        />
-                                    </div>
+                                <Link key={i} href={`/product/${t.id}`} className="hover:border border">
+                                 
+                                        {/* <img src={t.thumbnail} alt={t.title} /> */}
+                                        <div className="w-full h-[171px] object-center overflow-hidden">
+                                            <Image
+                                                src={t.thumbnail}
+                                                alt={t.title}
+                                                width={171}
+                                                height={171}
+                                                layout="responsive"
+                                                loading="lazy"
+                                            />
+                                        </div>
 
-                                    {/* {JSON.stringify(t)} */}
-                                    <div><p>{t.title}</p></div>
-                                    <div>
-                                        <h1>{t.price}</h1>
-                                        <p>{t.price}</p>
-                                    </div>
-                                </div>
+                                        <div className='p-2'>
+                                            <div><p>{t.title}</p></div>
+                                            <div>
+                                                <h1 className='text-xl text-red-500'>{t.price}</h1>
+                                                <p className='text-slate-400'>{t.price}</p>
+                                            </div>
+                                        </div>
+                                </Link>
                             )
                         })}
                     </div>

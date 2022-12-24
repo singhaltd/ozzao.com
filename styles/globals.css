@@ -5,9 +5,22 @@
 
 @layer components {
     .oz-contianer {
-        @apply container lg:w-8/12 md:w-8/12 mx-auto;
+        @apply container lg:max-w-7xl max-w-7xl md:max-w-7xl mx-auto;
     }
+
     .oz-product-grid {
-        @apply grid grid-cols-5;
+        @apply grid grid-cols-6 gap-2;
+    }
+
+    .oz-item-choose {
+        @apply w-[52px] h-[52px] relative hover:border-green-500 border-2;
+    }
+    .oz-item-choose svg {
+        @apply hidden;
+    }
+
+    .itm-active svg {
+        @apply block;
+
     }
 }
